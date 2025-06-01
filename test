@@ -1,0 +1,56 @@
+[INFO] User login successful: user123
+[WARN] Disk space running low on /dev/sda1
+[DEBUG] Value of counter: 42
+[ERROR] Failed to connect to database
+[INFO] Backup completed at 03:14:15
+[ERROR] Connection timeout on port 8080
+[INFO] Scheduled task started at 12:00
+[DEBUG] User input: abc123
+[INFO] Job finished successfully
+[WARN] Deprecated API usage
+[INFO] Log start: 2025-06-01
+[INFO] Log end: 2025-06-01
+[INFO] File processed: data001.csv
+[INFO] File processed: data002.csv
+[INFO] File processed: data003.csv
+[INFO] File processed: data010.csv
+[INFO] File processed: data011.csv
+[INFO] File processed: data012.csv
+[ERROR] Unexpected EOF in input stream
+[DEBUG] Matching pattern: a(b|c)*d+
+[DEBUG] Matching pattern: xyz.*
+[DEBUG] Matching pattern: [a-z]+
+[DEBUG] Matching pattern: error.*
+[DEBUG] Matching pattern: (abc)?(def)+
+[DEBUG] Matching pattern: (a|b|c)+d?
+[DEBUG] Matching pattern: .*\.csv
+[DEBUG] Matching pattern: log[0-9]*.txt
+[INFO] Session closed for user999
+[ERROR] Permission denied for user42
+[WARN] Retry attempt 1
+[WARN] Retry attempt 2
+[WARN] Retry attempt 3
+[INFO] Service restarted
+[DEBUG] Time delta: 0.123456s
+[INFO] File archived: archive_2025_05_31.zip
+[DEBUG] regex test: abcdefg
+[DEBUG] regex test: abcd
+[DEBUG] regex test: abc
+[DEBUG] regex test: abd
+[DEBUG] regex test: acd
+[DEBUG] regex test: adc
+[DEBUG] regex test: aaa
+[DEBUG] regex test: bbb
+[DEBUG] regex test: ccc
+[DEBUG] regex test: abccccc
+[DEBUG] regex test: abcabcabc
+[DEBUG] regex test: abc123xyz
+[DEBUG] regex test: abc-xyz
+[DEBUG] regex test: abc_xyz
+[DEBUG] regex test: abc.xyz
+[DEBUG] regex test: abc+xyz
+[DEBUG] regex test: abc*xyz
+[DEBUG] regex test: abc?xyz
+[DEBUG] regex test: abc|xyz
+[DEBUG] regex test: abc.def
+[DEBUG] regex test: abcdefghij

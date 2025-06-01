@@ -2,9 +2,8 @@
 
 int listid{0};
 
-std::string regex_to_postfix(const std::string& regex){
-    std::unordered_map<char, int> operator_precedence =   
-    {
+std::string regex_to_postfix(const std::string& regex) {
+    std::unordered_map<char, int> operator_precedence = {
         {'*', 3},
         {'+', 3},
         {'?', 3},
@@ -23,42 +22,50 @@ std::string regex_to_postfix(const std::string& regex){
 
         if (i + 1 < regex.size()) {
             char c2 = regex[i + 1];
-            if ((std::isalnum(c1) || c1 == ')' || c1 == '*' || c1 == '+' || c1 == '?') &&
-                (std::isalnum(c2) || c2 == '(')) {
+            bool c1_is_literal = (operator_precedence.find(c1) == operator_precedence.end() && c1 != '(' && c1 != ')');
+            bool c2_is_literal = (operator_precedence.find(c2) == operator_precedence.end() && c2 != '(' && c2 != ')');
+
+            if ((c1_is_literal || c1 == ')' || c1 == '*' || c1 == '+' || c1 == '?') &&
+                (c2_is_literal || c2 == '(')) {
                 regex_copy += '.';
             }
         }
     }
 
-    for(const char& c : regex_copy){
-        if(std::isalnum(c)){
+    for (const char& c : regex_copy) {
+        if (operator_precedence.find(c) == operator_precedence.end() && c != '(' && c != ')') {
+
             postfix_notation += c;
-            continue;
         }
-        else if(c == '('){
+        else if (c == '(') {
             operator_stack.push(c);
         }
-        else if(c == ')'){
-            while(!operator_stack.empty() && operator_stack.top() != '('){
+        else if (c == ')') {
+            while (!operator_stack.empty() && operator_stack.top() != '(') {
                 postfix_notation += operator_stack.top();
                 operator_stack.pop();
             }
-            operator_stack.pop();
+            if (!operator_stack.empty()) operator_stack.pop(); // remove '('
         }
-        else{
-            while(!operator_stack.empty() && operator_precedence[c] <= operator_precedence[operator_stack.top()]){
+        else {
+            while (!operator_stack.empty() && operator_stack.top() != '(' &&
+                   operator_precedence[c] <= operator_precedence[operator_stack.top()]) {
                 postfix_notation += operator_stack.top();
                 operator_stack.pop();
             }
             operator_stack.push(c);
         }
     }
-    while(!operator_stack.empty()){
+
+    while (!operator_stack.empty()) {
         postfix_notation += operator_stack.top();
         operator_stack.pop();
     }
+
     return postfix_notation;
 }
+
+
 
 State* postfix_to_nfa(const std::string& postfix_expr){
     std::stack<Fragment*> fragment_stack;
