@@ -1,6 +1,7 @@
 # GREP tool in c++
-- uses my regex.cpp tool to grep
+
+regex.cpp is a bit broken and doesnt capture non alphanumeric chars properly so i will have to fix it
 
 ---
 
-in progress
+(abandoned for now)
